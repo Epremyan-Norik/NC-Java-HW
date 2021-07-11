@@ -16,9 +16,9 @@ public class Zoo {
         animals.clear();
     };
 
-    public List<Animal> getAnimalsIsPoint(Point point){
+    /*public List<Animal> getAnimalsIsPoint(Point point){
         for(Animal animal : animals){
 
         }
-    }
+    }*/
 }
