@@ -35,5 +35,12 @@ public class CheckPalindromeTest {
         Assert.assertTrue(checkPalindrome.isPalindrome(-153351));
     }
 
+    @Test
+    public void checkForInputNotPalindrome() {
+        CheckPalindrome checkPalindrome = new CheckPalindrome();
+
+        Assert.assertTrue(!checkPalindrome.isPalindrome(16516));
+    }
+
 
 }
