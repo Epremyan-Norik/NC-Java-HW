@@ -8,7 +8,7 @@ public class TransposeMatrix extends AbstractMatrixOperation{
 
     @Override
     public int getElement(int i, int j) throws ArrayIndexOutOfBoundsException {
-        return super.getElement(j, i);
+        return super.matrix.getElement(j,i);
     }
 
 }

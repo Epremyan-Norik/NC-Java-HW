@@ -11,6 +11,6 @@ public class SumOfTwoMatrices extends AbstractMatrixOperation{
 
     @Override
     public int getElement(int i, int j) throws ArrayIndexOutOfBoundsException {
-        return super.getElement(i, j) + matrix.getElement(i,j);
+        return super.matrix.getElement(i, j) + matrix.getElement(i,j);
     }
 }
