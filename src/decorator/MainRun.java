@@ -21,6 +21,7 @@ public class MainRun {
         Matrix matrix = new MatrixImpl(myMatrix);
         Matrix transposeMatrix = new TransposeMatrix(new MatrixImpl(myMatrix));
         Matrix sumOfTwoMatrices  = new SumOfTwoMatrices(transposeMatrix, matrix);
+        
 
         printMatrix("Matrix", matrix, myMatrix[0].length);
         printMatrix("Transpose Matrix", transposeMatrix, myMatrix[0].length);
