@@ -2,7 +2,6 @@ package thezoo.commandparser;
 
 import thezoo.Exceptions.ZooExceptions;
 import thezoo.Zoo;
-import thezoo.ZooImpl;
 
 public class CheckOutImpl implements CommandFactory {
 

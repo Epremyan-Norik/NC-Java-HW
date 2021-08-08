@@ -6,13 +6,38 @@ import thezoo.implementation.*;
 import thezoo.model.*;
 
 import java.sql.*;
+import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
+        boolean result = false;
+        Zoo zoo1 = new ZooImpl();
+        zoo1.putCage(200, new СonditionImpl(Species.LEON));
+        try {
+            zoo1.checkInAnimal(new AnimalImpl("Leo", Species.LEON));
+            List<InhibitionLog> history = zoo1.getHistory();
+            System.out.println(history.get(0));
+            int index1 = history.get(0).toString().lastIndexOf("animalSpecies=LEON");
+            int index2 = history.get(0).toString().lastIndexOf("animalName=\'Leo\'");
+            if(index1>0 && index2>0){
+                result = true;
+            }
+        } catch (ZooExceptions.CageNotFound e){
+            e.printStackTrace();
+            result = false;
+        } catch (ZooExceptions.IncorrectName e){
+            e.printStackTrace();
+            result = false;
+        }
+        System.out.println(result);
+
+
+
 
        Database db = new DatabaseImpl("jdbc:postgresql://localhost:5432/zooTest", "postgres", "4815");
-       Zoo zoo = new ZooImpl(db);
+       Zoo zoo = new ZooDBImpl(db);
 
 
        //инифиализация при первом запуске

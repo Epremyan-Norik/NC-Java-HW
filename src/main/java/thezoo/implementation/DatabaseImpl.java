@@ -2,14 +2,12 @@ package thezoo.implementation;
 
 import thezoo.Exceptions.ZooExceptions;
 import thezoo.InhibitionLog;
-import thezoo.ZooImpl;
 import thezoo.model.Animal;
 import thezoo.model.Condition;
 import thezoo.model.Database;
 import thezoo.model.Species;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -19,10 +17,31 @@ public class DatabaseImpl implements Database {
     private String db;
     private String user;
     private String pass;
+    private boolean checked = false;
 
-    public DatabaseImpl(String db, String user, String pass) throws SQLException {
-        connection = DriverManager.getConnection(db, user, pass);
-        connection.setAutoCommit(false);
+    public DatabaseImpl()  {
+
+    }
+
+    public DatabaseImpl(String db, String user, String pass) {
+        try {
+            connection = DriverManager.getConnection(db, user, pass);
+            connection.setAutoCommit(false);
+            checked = true;
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    public boolean setConnectionVariables(String db, String user, String pass)  {
+        try {
+            connection = DriverManager.getConnection(db, user, pass);
+            connection.setAutoCommit(false);
+            checked = true;
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return checked;
     }
 
     @Override

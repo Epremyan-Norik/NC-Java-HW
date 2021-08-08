@@ -2,7 +2,6 @@ package thezoo.commandparser;
 
 import thezoo.Exceptions.ZooExceptions;
 import thezoo.Zoo;
-import thezoo.ZooImpl;
 import thezoo.implementation.AnimalBuilder;
 import thezoo.implementation.BuilderDirector;
 import thezoo.model.Animal;

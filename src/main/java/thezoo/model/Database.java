@@ -2,10 +2,7 @@ package thezoo.model;
 
 import thezoo.Exceptions.ZooExceptions;
 import thezoo.InhibitionLog;
-import thezoo.ZooImpl;
-import thezoo.implementation.DatabaseImpl;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface Database {
