@@ -1,5 +1,6 @@
 package thezoo.commandparser;
 
+import thezoo.Exceptions.ZooExceptions;
 import thezoo.Zoo;
 import thezoo.ZooImpl;
 import thezoo.implementation.AnimalBuilder;
@@ -32,10 +33,10 @@ public class CheckInImpl implements CommandFactory{
                 try {
                     zoo.checkInAnimal(newAnimal);
                 }
-                catch (ZooImpl.IncorrectName exc){
-                    exc.printStackTrace();
+                catch (ZooExceptions.IncorrectName exc){
+                    System.out.println("Name already exist: "+ newAnimal.getName());
                 }
-                catch (ZooImpl.CageNotFound exc){
+                catch (ZooExceptions.CageNotFound exc){
                     System.out.println("Zoo have no cage for "+ newAnimal.getName());
                 }
                 break;
@@ -48,10 +49,10 @@ public class CheckInImpl implements CommandFactory{
                 try {
                     zoo.checkInAnimal(newAnimal);
                 }
-                catch (ZooImpl.IncorrectName exc){
-                    exc.printStackTrace();
+                catch (ZooExceptions.IncorrectName exc){
+                    System.out.println("Name already exist: "+ newAnimal.getName());
                 }
-                catch (ZooImpl.CageNotFound exc){
+                catch (ZooExceptions.CageNotFound exc){
                     System.out.println("Zoo have no cage for "+ newAnimal.getName());
                 }
                 break;
@@ -64,10 +65,10 @@ public class CheckInImpl implements CommandFactory{
                 try {
                     zoo.checkInAnimal(newAnimal);
                 }
-                catch (ZooImpl.IncorrectName exc){
-                    exc.printStackTrace();
+                catch (ZooExceptions.IncorrectName exc){
+                    System.out.println("Name already exist: "+ newAnimal.getName());
                 }
-                catch (ZooImpl.CageNotFound exc){
+                catch (ZooExceptions.CageNotFound exc){
                     System.out.println("Zoo have no cage for "+ newAnimal.getName());
                 }
                 break;
@@ -80,10 +81,10 @@ public class CheckInImpl implements CommandFactory{
                 try {
                     zoo.checkInAnimal(newAnimal);
                 }
-                catch (ZooImpl.IncorrectName exc){
-                    exc.printStackTrace();
+                catch (ZooExceptions.IncorrectName exc){
+                    System.out.println("Name already exist: "+ newAnimal.getName());
                 }
-                catch (ZooImpl.CageNotFound exc){
+                catch (ZooExceptions.CageNotFound exc){
                     System.out.println("Zoo have no cage for "+ newAnimal.getName());
                 }
                 break;

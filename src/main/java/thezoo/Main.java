@@ -1,22 +1,36 @@
 package thezoo;
 
+import thezoo.Exceptions.ZooExceptions;
 import thezoo.commandparser.*;
 import thezoo.implementation.*;
 import thezoo.model.*;
 
+import java.sql.*;
 import java.util.Locale;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
-        Zoo zoo = new ZooImpl();
-        zoo.putCage(200, new СonditionImpl(Species.LEON));
-        zoo.putCage(200, new СonditionImpl(Species.PENGUIN));
-        zoo.putCage(200, new СonditionImpl(Species.GIRAFFE));
-        zoo.putCage(200, new СonditionImpl(Species.SQUIRREL));
+       Database db = new DatabaseImpl("jdbc:postgresql://localhost:5432/zooTest", "postgres", "4815");
+       Zoo zoo = new ZooImpl(db);
 
 
-        while (runCommandsFromConsole(zoo));
+       //инифиализация при первом запуске
+       Connection cn =  DriverManager.getConnection("jdbc:postgresql://localhost:5432/zooTest", "postgres", "4815");
+       cn.setAutoCommit(false);
+       Statement statement = cn.createStatement();
+       ResultSet resultSet =  statement.executeQuery("SELECT * FROM cages");
+       if(!resultSet.next()){
+           statement.executeUpdate(String.format("INSERT INTO cages(area, availablefor) VALUES(%d, %d);", 200, 1));
+           statement.executeUpdate(String.format("INSERT INTO cages(area, availablefor) VALUES(%d, %d);", 200, 2));
+           statement.executeUpdate(String.format("INSERT INTO cages(area, availablefor) VALUES(%d, %d);", 200, 3));
+           statement.executeUpdate(String.format("INSERT INTO cages(area, availablefor) VALUES(%d, %d);", 200, 4));
+       }
+       cn.commit();
+       cn.close();
+
+       while (runCommandsFromConsole(zoo));
+
 
     }
 
@@ -77,9 +91,9 @@ public class Main {
 
     public static void printCommandList(){
         System.out.println("Commands :" + "\n"
-                + "1.check-in" + "\n"
-                + "2.check-out" + "\n"
-                + "3.log" + "\n"
-                + "4.Exit");
+                + "- check-in" + "\n"
+                + "- check-out" + "\n"
+                + "- log" + "\n"
+                + "- Exit");
     }
 }

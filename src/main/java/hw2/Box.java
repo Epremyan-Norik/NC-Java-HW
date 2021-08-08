@@ -1,6 +1,6 @@
 package hw2;
 
-public class Box implements shape{
+public class Box implements hw2.shape {
     double a;
 
     public Box(){

@@ -1,5 +1,6 @@
 package thezoo.commandparser;
 
+import thezoo.Exceptions.ZooExceptions;
 import thezoo.Zoo;
 import thezoo.ZooImpl;
 
@@ -14,7 +15,7 @@ public class CheckOutImpl implements CommandFactory {
         try{
             zoo.checkOutAnimal(commands[0]);
         }
-        catch (ZooImpl.IncorrectName exc){
+        catch (ZooExceptions.IncorrectName exc){
             exc.printStackTrace();
         }
     }

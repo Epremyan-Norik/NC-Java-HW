@@ -1,4 +1,4 @@
-package hw2;
+package main.java.hw2;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,7 +9,7 @@ public class BoxTest {
 
     @Test
     public void canCrateBox() {
-        Box box1 = new Box();
+        hw2.Box box1 = new hw2.Box();
         double eps = 0.00001;
 
         Assert.assertTrue(Math.abs(box1.getA()-0)<eps);
@@ -18,7 +18,7 @@ public class BoxTest {
     @Test
     public void canCreateBoxWithArgs() {
         double a = 4;
-        Box box1 = new Box(a);
+        hw2.Box box1 = new hw2.Box(a);
         double eps = 0.00001;
 
         Assert.assertTrue(Math.abs(box1.getA()-a)<eps);
@@ -27,7 +27,7 @@ public class BoxTest {
     @Test
     public void canGetA() {
         double a = 4;
-        Box box1 = new Box(a);
+        hw2.Box box1 = new hw2.Box(a);
         double eps = 0.00001;
 
         Assert.assertTrue(Math.abs(box1.getA()-a)<eps);
@@ -36,7 +36,7 @@ public class BoxTest {
     @Test
     public void canSetA() {
         double a = 4;
-        Box box1 = new Box();
+        hw2.Box box1 = new hw2.Box();
         double eps = 0.00001;
 
         box1.setA(a);
@@ -48,7 +48,7 @@ public class BoxTest {
     @Test
     public void canGetTrueArea() {
         double a = 4;
-        Box box1 = new Box();
+        hw2.Box box1 = new hw2.Box();
         double eps = 0.00001;
 
         box1.setA(a);
@@ -59,7 +59,7 @@ public class BoxTest {
     @Test
     public void canGetAreaWithNegativeArgs() {
         double a = -4;
-        Box box1 = new Box();
+        hw2.Box box1 = new hw2.Box();
         double eps = 0.00001;
 
         box1.setA(a);

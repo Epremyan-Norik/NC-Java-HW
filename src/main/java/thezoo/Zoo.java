@@ -1,5 +1,6 @@
 package thezoo;
 
+import thezoo.Exceptions.ZooExceptions;
 import thezoo.model.Animal;
 import thezoo.model.Condition;
 
@@ -13,9 +14,9 @@ import java.util.List;
  * @getHistory - method show log of check in and check out
  */
 public interface Zoo {
-    void checkInAnimal(Animal animal) throws ZooImpl.IncorrectName, ZooImpl.CageNotFound;
-    void checkOutAnimal(String name) throws ZooImpl.IncorrectName;
+    void checkInAnimal(Animal animal) throws ZooExceptions.IncorrectName, ZooExceptions.CageNotFound;
+    void checkOutAnimal(String name) throws ZooExceptions.IncorrectName;
     List<InhibitionLog> getHistory();
     void putCage(double area, Condition condition);
-    void removeCage(int number);
+    void removeCage(int number) throws ZooExceptions.CageNotEmpty;
 }
